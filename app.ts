@@ -4,8 +4,6 @@ import dotenv from 'dotenv';
 import { PrismaClient } from '@prisma/client';
 import likesRoutes from './src/routes/likesRoutes';
 
-
-
 // Import Swagger setup
 import { setupSwagger } from './src/config/swagger';
 
@@ -46,13 +44,6 @@ app.get('/', (req, res) => {
   res.json({ 
     message: 'Profile Microservice API is working!',
     documentation: '/api-docs',
-    endpoints: {
-      ownProfile: 'GET /api/profile/me/:userId',
-      userProfile: 'GET /api/profile/user/:userId',
-      updateProfilePicture: 'PATCH /api/profile/profile-picture/:userId',
-      updateBanner: 'PATCH /api/profile/banner/:userId',
-      updateProfileInfo: 'PATCH /api/profile/info/:userId'
-    }
   });
 });
 
