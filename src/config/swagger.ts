@@ -6,7 +6,7 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Profile Microservice API',
+      title: 'Likes Microservice API',
       version: '1.0.0',
       description: 'API para la gestión de perfiles de usuario en Watpato',
       contact: {
