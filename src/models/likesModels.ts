@@ -31,10 +31,8 @@ export interface BookLikeResponse {
         id: string;
         title: string;
         coverImage?: string;
-        author: {
-            username: string;
-            profilePicture?: string;
-        };
+        description?: string;
+        genres: string[];
     };
 }
 

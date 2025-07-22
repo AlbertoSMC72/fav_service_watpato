@@ -46,10 +46,7 @@ export class LikesRepository {
           id: like.book.id.toString(),
           title: like.book.title,
           coverImage: like.book.coverImage || undefined,
-          author: {
-            username: like.book.author?.username || '',
-            profilePicture: like.book.author?.profilePicture || undefined
-          }
+          genres: []
         }
       };
     } catch (error) {
@@ -288,10 +285,9 @@ export class LikesRepository {
           include: {
             book: {
               include: {
-                author: {
-                  select: {
-                    username: true,
-                    profilePicture: true
+                genres: {
+                  include: {
+                    genre: true
                   }
                 }
               }
@@ -328,10 +324,8 @@ export class LikesRepository {
           id: like.book.id.toString(),
           title: like.book.title,
           coverImage: like.book.coverImage || undefined,
-          author: {
-            username: like.book.author?.username || '',
-            profilePicture: like.book.author?.profilePicture || undefined
-          }
+          description: like.book.description || undefined,
+          genres: like.book.genres?.map(bg => bg.genre.name) || []
         }
       }));
 
